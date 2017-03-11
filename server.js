@@ -14,11 +14,11 @@ app.get('/art-one',function (req,res){
 });
 
 app.get('/art-two',function (req,res){
-    res.send('Article two is requsted');
+     res.sendFile(path.join(__dirname, 'ui', 'article-two.html'));
 });
 
 app.get('/art-three',function (req,res){
-    res.send('Article Three is requsted');
+  res.sendFile(path.join(__dirname, 'ui', 'article-three.html'));
 });
 
 app.get('/ui/style.css', function (req, res) {
