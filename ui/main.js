@@ -1,5 +1,5 @@
 var button = document.getElementById('counter');
-counter = 0;
+
 button.onclick = function(){
     
     var request = XMLHttpRequest();
@@ -14,6 +14,6 @@ button.onclick = function(){
         }
     };
     
-    request.open('GET','http://dhanraj99.imad.hasura-app.io/counter');
+    request.open('GET','http://dhanraj99.imad.hasura-app.io/counter',true);
     request.send(null);
 };
