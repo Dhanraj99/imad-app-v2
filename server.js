@@ -5,21 +5,24 @@ var path = require('path');
 var app = express();
 app.use(morgan('combined'));
 
-var content = {
-title:'Article One | dp',
-heading:'Article One',
-date:'Oct 2017',
-content:`
-            <p>
-                This is my first article usin imad.Internet Explorer assigns all websites to one of four security zones: Internet, Local intranet, Trusted sites, or Restricted sites. The zone to which a website is assigned specifies the security settings that are used for that site. You can choose which websites to assign to the Intranet, Trusted, or Restricted zones. By adding a website to a specific zone, you can control the level of security used on that site. For example, if you have a list of websites that you visit and you completely trust those sites, add those sites to the Trusted zone.
-            </p>
-            <p>
-                This is my first article usin imad.Internet Explorer assigns all websites to one of four security zones: Internet, Local intranet, Trusted sites, or Restricted sites. The zone to which a website is assigned specifies the security settings that are used for that site. You can choose which websites to assign to the Intranet, Trusted, or Restricted zones. By adding a website to a specific zone, you can control the level of security used on that site. For example, if you have a list of websites that you visit and you completely trust those sites, add those sites to the Trusted zone.
-            </p>
-            <p>`
-
+var articles={
+    articleOne : {
+    title:'Article One | dp',
+    heading:'Article One',
+    date:'Oct 2017',
+    content:`
+                <p>
+                    This is my first article usin imad.Internet Explorer assigns all websites to one of four security zones: Internet, Local intranet, Trusted sites, or Restricted sites. The zone to which a website is assigned specifies the security settings that are used for that site. You can choose which websites to assign to the Intranet, Trusted, or Restricted zones. By adding a website to a specific zone, you can control the level of security used on that site. For example, if you have a list of websites that you visit and you completely trust those sites, add those sites to the Trusted zone.
+                </p>
+                <p>
+                    This is my first article usin imad.Internet Explorer assigns all websites to one of four security zones: Internet, Local intranet, Trusted sites, or Restricted sites. The zone to which a website is assigned specifies the security settings that are used for that site. You can choose which websites to assign to the Intranet, Trusted, or Restricted zones. By adding a website to a specific zone, you can control the level of security used on that site. For example, if you have a list of websites that you visit and you completely trust those sites, add those sites to the Trusted zone.
+                </p>
+                <p>`
+    
+    },
+    articleTwo : {},
+    articleThree : {}
 };
-
 
 
 app.get('/', function (req, res) {
