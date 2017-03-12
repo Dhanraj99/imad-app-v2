@@ -6,7 +6,7 @@ var app = express();
 app.use(morgan('combined'));
 
 var articles={
-    articleOne : {
+    'article-one' : {
     title:'Article One | dp',
     heading:'Article One',
     date:'Oct 2017',
@@ -20,7 +20,7 @@ var articles={
                 <p>`
     
     },
-    articleTwo : {
+    'article-two' : {
         title:'Article Two | dp',
         heading:'Article One',
         date:'Oct 2017',
@@ -29,7 +29,7 @@ var articles={
                 This is my second article usin imad.Inted zone.
             </p>`
     },       
-    articleThree : {
+    'article-three' : {
         title:'Article Three | dp',
         heading:'Article Three',
         date:'Oct 2017',
@@ -45,16 +45,9 @@ app.get('/', function (req, res) {
   res.sendFile(path.join(__dirname, 'ui', 'index.html'));
 });
 
-app.get('/art-one',function (req,res){
-    res.send(createTemplate(articleOne));
-});
-
-app.get('/art-two',function (req,res){
-     res.sendFile(path.join(__dirname, 'ui', 'article-two.html'));
-});
-
-app.get('/art-three',function (req,res){
-  res.sendFile(path.join(__dirname, 'ui', 'article-three.html'));
+app.get('/:articleName',function (req,res){
+    var articleName = req.params.articleName;
+    res.send(createTemplate(articles[articleName]));
 });
 
 app.get('/ui/style.css', function (req, res) {
