@@ -1,5 +1,5 @@
 var button = document.getElementById('counter');
-countre = 0;
+counter = 0;
 button.onclick = function(){
     
     //make a req 
