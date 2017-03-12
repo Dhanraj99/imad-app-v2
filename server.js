@@ -5,12 +5,29 @@ var path = require('path');
 var app = express();
 app.use(morgan('combined'));
 
+var content = {
+title:'Article One | dp',
+heading:'Article One',
+date:'Oct 2017',
+content:`
+            <p>
+                This is my first article usin imad.Internet Explorer assigns all websites to one of four security zones: Internet, Local intranet, Trusted sites, or Restricted sites. The zone to which a website is assigned specifies the security settings that are used for that site. You can choose which websites to assign to the Intranet, Trusted, or Restricted zones. By adding a website to a specific zone, you can control the level of security used on that site. For example, if you have a list of websites that you visit and you completely trust those sites, add those sites to the Trusted zone.
+            </p>
+            <p>
+                This is my first article usin imad.Internet Explorer assigns all websites to one of four security zones: Internet, Local intranet, Trusted sites, or Restricted sites. The zone to which a website is assigned specifies the security settings that are used for that site. You can choose which websites to assign to the Intranet, Trusted, or Restricted zones. By adding a website to a specific zone, you can control the level of security used on that site. For example, if you have a list of websites that you visit and you completely trust those sites, add those sites to the Trusted zone.
+            </p>
+            <p>`
+
+};
+
+
+
 app.get('/', function (req, res) {
   res.sendFile(path.join(__dirname, 'ui', 'index.html'));
 });
 
 app.get('/art-one',function (req,res){
-    res.sendFile(path.join(__dirname, 'ui', 'article-one.html'));
+    res.send(createTemplate(articleOne));
 });
 
 app.get('/art-two',function (req,res){
@@ -29,6 +46,42 @@ app.get('/ui/madi.png', function (req, res) {
   res.sendFile(path.join(__dirname, 'ui', 'madi.png'));
 });
 
+function createTemplate(data){
+    var title = data.title;
+    var heading = data.heading;
+    var date = data.date;
+    var content = data.content;
+    
+    var htmlTemplate = `
+        <html>
+        <head>
+            <title>
+               ${title}
+            </title>
+            <meta name="viewport" content="width=device-width, initial-scale=1"/>
+            <link href="/ui/style.css" rel="stylesheet"/>
+        </head>
+        <body>
+            <div class="container">
+                <div>
+                     <a href='/'> Home</a>
+                </div>
+                <hr/>
+                <h3>
+                    ${heading}
+                </h3>
+                <div>
+                   ${data}
+                </div>
+                <div>
+                   ${content}
+                </div>
+            </div>
+        </body>
+    </html>`
+    ; 
+    return htmlTemplate;
+}
 
 var port = 8080; // Use 8080 for local development because you might already have apache running on 80
 app.listen(8080, function () {
