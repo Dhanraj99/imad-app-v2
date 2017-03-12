@@ -20,8 +20,24 @@ var articles={
                 <p>`
     
     },
-    articleTwo : {},
-    articleThree : {}
+    articleTwo : {
+        title:'Article Two | dp',
+        heading:'Article One',
+        date:'Oct 2017',
+        content:`
+            <p>
+                This is my second article usin imad.Inted zone.
+            </p>`
+    },       
+    articleThree : {
+        title:'Article Three | dp',
+        heading:'Article Three',
+        date:'Oct 2017',
+        content:`
+            <p>
+                This is content from my Third article usin imad.
+            </p>`
+    }
 };
 
 
