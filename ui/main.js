@@ -40,6 +40,11 @@ var articles={
     }
 };
 
+var port = 8080; // Use 8080 for local development because you might already have apache running on 80
+app.listen(8080, function () {
+  console.log(`IMAD course app listening on port ${port}!`);
+});
+
 function createTemplate(data){
     var title = data.title;
     var heading = data.heading;
@@ -76,11 +81,6 @@ function createTemplate(data){
     ; 
     return htmlTemplate;
 }
-
-var port = 8080; // Use 8080 for local development because you might already have apache running on 80
-app.listen(8080, function () {
-  console.log(`IMAD course app listening on port ${port}!`);
-});
 
 app.get('/', function (req, res) {
   res.sendFile(path.join(__dirname, 'ui', 'index.html'));
